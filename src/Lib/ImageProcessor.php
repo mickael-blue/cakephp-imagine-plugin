@@ -39,7 +39,7 @@ class ImageProcessor {
 	 * @var array
 	 */
 	public function __construct(array $config = []) {
-		$this->config($config);
+		$this->getConfig($config);
 	}
 
 	/**
@@ -49,7 +49,7 @@ class ImageProcessor {
 	 */
 	public function imagine($renew = false) {
 		if (empty($this->_imagine) || $renew === true) {
-			$class = '\Imagine\\' . $this->config('engine') . '\Imagine';
+			$class = '\Imagine\\' . $this->getConfig('engine') . '\Imagine';
 			$this->_imagine = new $class();
 			return $this->_imagine;
 		}
