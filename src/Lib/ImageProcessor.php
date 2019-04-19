@@ -39,7 +39,7 @@ class ImageProcessor {
 	 * @var array
 	 */
 	public function __construct(array $config = []) {
-		$this->getConfig($config);
+		$this->setConfig($config);
 	}
 
 	/**
