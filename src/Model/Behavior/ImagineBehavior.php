@@ -46,11 +46,11 @@ class ImagineBehavior extends Behavior {
 	public function __construct(Table $table, array $settings = []) {
 		parent::__construct($table, $settings);
 
-		$class = '\Imagine\\' . $this->config('engine') . '\Imagine';
+		$class = '\Imagine\\' . $this->getConfig('engine') . '\Imagine';
 		$this->Imagine = new $class();
 		$this->_table = $table;
-		$processorClass = $this->config('processorClass');
-		$this->_processor = new $processorClass($this->config());
+		$processorClass = $this->getConfig('processorClass');
+		$this->_processor = new $processorClass($this->getConfig());
 	}
 
 	/**

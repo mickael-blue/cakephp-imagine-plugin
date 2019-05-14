@@ -482,7 +482,7 @@ class ImageProcessor {
 	 */
 	protected function _getImage($Image = null) {
 		if (is_string($Image)) {
-			$class = 'Imagine\\' . $this->config('engine') . '\Imagine';
+			$class = 'Imagine\\' . $this->getConfig('engine') . '\Imagine';
 			$Imagine = new $class();
 			return $Imagine->open($Image);
 		}
