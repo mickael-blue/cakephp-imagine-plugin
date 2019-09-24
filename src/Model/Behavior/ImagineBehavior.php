@@ -111,7 +111,7 @@ class ImagineBehavior extends Behavior {
 			return $event->result;
 		}
 
-		$data = $event->data();
+		$data = $event->getData();
 		$this->_applyOperations(
 			$data['operations'],
 			$data['image']
