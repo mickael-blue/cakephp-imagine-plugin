@@ -109,7 +109,7 @@ class ImagineBehavior extends Behavior {
 
 		$event = $this->_table->dispatchEvent('ImagineBehavior.beforeApplyOperations', compact('image', 'operations'));
 		if ($event->isStopped()) {
-			return $event->result;
+			return $event->getResult();
 		}
 
 		$data = $event->getData();
@@ -120,7 +120,7 @@ class ImagineBehavior extends Behavior {
 
 		$event = $this->_table->dispatchEvent('ImagineBehavior.afterApplyOperations', $data);
 		if ($event->isStopped()) {
-			return $event->result;
+			return $event->getResult();
 		}
 
 		if ($output === null) {
