@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * Copyright 2011-2016, Florian Krämer
  *
@@ -13,9 +14,9 @@ namespace Burzum\Imagine\Controller\Component;
 use Cake\Controller\Component;
 use Cake\Utility\Security;
 use Cake\Controller\ComponentRegistry;
-use Cake\Event\Event;
+use Cake\Event\EventInterface;
 use Cake\Core\Configure;
-use Cake\Network\Exception\NotFoundException;
+use Cake\Http\Exception\NotFoundException;
 use InvalidArgumentException;
 
 /**
@@ -73,11 +74,11 @@ class ImagineComponent extends Component {
 	 * @param Event $Event
 	 * @return void
 	 */
-	public function startup(Event $Event) {
-		$Controller = $Event->subject();
+	public function startup(EventInterface $event): ?Response
+		$Controller = $event->getSubject();
 		$this->Controller = $Controller;
 		if (!empty($this->_config['actions'])) {
-			if (in_array($this->Controlle->action, $this->_config['actions'])) {
+			if (in_array($this->Controller->action, $this->_config['actions'])) {
 				if ($this->_config['checkHash'] === true) {
 					$this->checkHash();
 				}
