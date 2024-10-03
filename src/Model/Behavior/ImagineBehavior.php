@@ -37,6 +37,9 @@ class ImagineBehavior extends Behavior {
 	 * @var string
 	 */
 	protected $_processorClass;
+	protected $_processor;
+	protected $_table;
+	protected $Imagine;
 
 	/**
 	 * Constructor
